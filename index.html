@@ -2,23 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Altered Sound | Official Site</title>
+  <title>The Altered Sound | Death Stealer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Official home of The Altered Sound — modern Christ-centered metalcore, backing tracks, and guitar tone presets." />
+  <meta name="description" content="The Altered Sound – Christ-centered metalcore with gothic atmosphere. Heavy worship, Death Stealer, and more." />
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #050509;
-      --bg-alt: #090913;
-      --accent1: #ff2b6e;
-      --accent2: #6d5bff;
+      --bg: #030306;
+      --bg-alt: #090711;
+      --panel: #101018;
+      --border: #2b2033;
+      --accent-red: #b3122f;
+      --accent-glow: #ff255e;
+      --accent-purple: #4c2b72;
       --text: #f5f5f7;
-      --muted: #9a9ab3;
-      --card: #121222;
-      --border: #26263a;
+      --muted: #9a8fa5;
     }
 
     * {
@@ -29,9 +30,12 @@
 
     body {
       font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #181830 0, #050509 55%);
+      background:
+        radial-gradient(circle at top, #1b0e26 0, transparent 50%),
+        radial-gradient(circle at bottom, #16040b 0, #030306 60%);
       color: var(--text);
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     a {
@@ -46,48 +50,63 @@
     }
 
     header {
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(to bottom, #050509ee, #050509aa 70%, transparent);
       position: sticky;
       top: 0;
-      backdrop-filter: blur(16px);
       z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      background: linear-gradient(to bottom, rgba(3,3,6,0.96), rgba(3,3,6,0.7), transparent);
+      backdrop-filter: blur(18px);
     }
 
     .nav {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.9rem 1.2rem;
+      padding: 0.75rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .logo-text {
-      font-weight: 800;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      display: inline-flex;
+    .logo {
+      display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.6rem;
     }
 
-    .logo-pill {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: conic-gradient(from 150deg, var(--accent1), var(--accent2), #00f7ff, var(--accent1));
-      box-shadow: 0 0 20px rgba(255, 43, 110, 0.6);
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 30% 20%, #ffffff, transparent 55%),
+        radial-gradient(circle at 70% 80%, var(--accent-glow), transparent 60%),
+        radial-gradient(circle at 10% 90%, var(--accent-purple), transparent 60%);
+      box-shadow: 0 0 28px rgba(255, 37, 94, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .logo-text-main {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
       gap: 1.4rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
     }
 
     .nav-links a {
@@ -105,42 +124,44 @@
     .section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.4rem 1.2rem;
+      padding: 2.6rem 1.2rem;
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 2.2rem;
-      align-items: center;
-      padding-top: 3.3rem;
+      gap: 2.4rem;
+      padding-top: 3.2rem;
       padding-bottom: 2.6rem;
+      align-items: center;
     }
 
     .hero-tag {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
       color: var(--muted);
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3rem);
+      font-family: "Cinzel", serif;
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
       font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       line-height: 1.1;
-      margin-bottom: 0.9rem;
-      background: linear-gradient(120deg, #ffffff, #ff9ad1 35%, #9ea5ff 70%, #9effff);
+      margin-bottom: 0.8rem;
+      background: linear-gradient(120deg, #fdfdfd, #ff9fbf 30%, #c94b5a 60%, #b89cff);
       -webkit-background-clip: text;
       color: transparent;
-      text-shadow: 0 0 24px rgba(0, 0, 0, 0.7);
     }
 
     .hero-sub {
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       max-width: 30rem;
       margin-bottom: 1.7rem;
     }
@@ -149,26 +170,30 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
     }
 
     .btn {
       border-radius: 999px;
-      padding: 0.7rem 1.4rem;
-      font-size: 0.8rem;
+      padding: 0.68rem 1.4rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       border: 1px solid transparent;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.5rem;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn-primary {
-      background: linear-gradient(130deg, var(--accent1), var(--accent2));
-      border-color: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 22px rgba(111, 86, 255, 0.7);
+      background: radial-gradient(circle at 0 0, #ffffff33, transparent 40%),
+                  linear-gradient(135deg, var(--accent-red), var(--accent-glow));
+      border-color: rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 0 18px rgba(255, 37, 94, 0.65),
+        0 0 40px rgba(179, 18, 47, 0.45);
     }
 
     .btn-ghost {
@@ -178,170 +203,145 @@
     }
 
     .btn-ghost:hover {
-      border-color: var(--accent2);
+      border-color: var(--accent-purple);
       color: var(--text);
     }
 
     .hero-meta {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       color: var(--muted);
     }
 
     .hero-art {
       border-radius: 26px;
-      background: radial-gradient(circle at top left, rgba(255, 43, 110, 0.3), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(109, 91, 255, 0.35), transparent 55%),
-                  var(--bg-alt);
-      padding: 1.3rem;
       border: 1px solid var(--border);
-      position: relative;
+      background:
+        radial-gradient(circle at top, #37152c, transparent 55%),
+        radial-gradient(circle at bottom, #0c0715, #050308 60%);
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(255, 37, 94, 0.35);
       overflow: hidden;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.85);
+      position: relative;
     }
 
     .hero-art-inner {
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 1.2rem;
-      background: radial-gradient(circle at top, rgba(0, 0, 0, 0.8), #050509);
-      height: 100%;
+      padding: 1.3rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1.2rem;
+      gap: 1rem;
+      height: 100%;
     }
 
-    .art-title {
+    .hero-art-image {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-art-image img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-art-label {
+      font-size: 0.72rem;
       text-transform: uppercase;
-      font-size: 0.8rem;
       letter-spacing: 0.26em;
       color: var(--muted);
-      margin-bottom: 0.4rem;
+      margin-top: 0.3rem;
     }
 
-    .art-main {
-      font-size: 1.05rem;
+    .hero-art-title {
+      font-size: 0.96rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
+      margin-top: 0.4rem;
     }
 
-    .art-tagline {
-      font-size: 0.75rem;
+    .hero-art-tagline {
+      font-size: 0.8rem;
       color: var(--muted);
+      margin-top: 0.4rem;
     }
 
-    .wave {
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
-      gap: 2px;
-      padding: 4px;
-      margin-bottom: 0.4rem;
-    }
+    /* SECTIONS */
 
-    .wave span {
-      border-radius: 999px;
-      background: linear-gradient(to top, rgba(255, 43, 110, 0.1), rgba(110, 90, 255, 0.6));
-      transform-origin: center bottom;
-    }
-
-    .wave span:nth-child(odd) { height: 65%; }
-    .wave span:nth-child(even) { height: 35%; }
-    .wave span:nth-child(3n) { height: 90%; }
-
-    .art-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    /* Section titles */
     .section-header {
       margin-bottom: 1.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 0.8rem;
     }
 
     .section-title {
-      font-size: 1.1rem;
+      font-family: "Cinzel", serif;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.26em;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
     }
 
     .section-sub {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      max-width: 26rem;
+      max-width: 30rem;
     }
 
-    /* Music */
+    /* MUSIC GRID */
 
     .music-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.1rem;
     }
 
     .card {
       border-radius: 18px;
-      background: radial-gradient(circle at top, #1c1c30, #0b0b16);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 55%),
+        linear-gradient(150deg, #17121f, #09060e);
       border: 1px solid var(--border);
-      padding: 1rem 1.1rem;
+      padding: 1.1rem 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.55rem;
     }
 
     .card-pill {
       font-size: 0.7rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
     }
 
     .card-title {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       font-weight: 600;
-      margin-bottom: 0.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
     .card-text {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      margin-bottom: 0.5rem;
     }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      font-size: 0.7rem;
-    }
-
-    .chip {
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
+    .card-meta {
+      font-size: 0.72rem;
       color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
     }
 
     .card-actions {
-      margin-top: 0.5rem;
+      margin-top: 0.6rem;
       display: flex;
-      gap: 0.6rem;
       flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .btn-mini {
       font-size: 0.72rem;
-      padding: 0.4rem 0.8rem;
+      padding: 0.45rem 0.9rem;
       border-radius: 999px;
       border: 1px solid var(--border);
       text-transform: uppercase;
@@ -351,74 +351,102 @@
 
     .btn-mini.primary {
       border-color: rgba(255, 255, 255, 0.2);
-      background: linear-gradient(130deg, rgba(255, 43, 110, 0.9), rgba(109, 91, 255, 0.95));
+      background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
       color: #fff;
     }
 
-    /* Gear */
-
-    .gear-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .price {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    /* About */
+    /* ABOUT */
 
     .about-layout {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 1.6rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.8rem;
       align-items: flex-start;
     }
 
     .about-text {
-      font-size: 0.87rem;
+      font-size: 0.86rem;
       color: var(--muted);
-      max-width: 32rem;
+      max-width: 34rem;
     }
 
-    .about-highlight {
+    .about-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    .quote-box {
       border-radius: 16px;
       border: 1px solid var(--border);
-      padding: 0.9rem 1rem;
-      background: linear-gradient(130deg, rgba(255, 43, 110, 0.06), rgba(0, 0, 0, 0.9));
+      background:
+        radial-gradient(circle at top, rgba(179, 18, 47, 0.18), transparent 60%),
+        #07040c;
+      padding: 1rem 1rem 1.1rem;
       font-size: 0.8rem;
     }
 
-    /* Contact */
+    .quote-heading {
+      font-family: "Cinzel", serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.5rem;
+    }
 
-    .contact-box {
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.6rem;
+    }
+
+    .contact-card {
       border-radius: 18px;
       border: 1px solid var(--border);
-      padding: 1.2rem 1.2rem 1.3rem;
-      background: radial-gradient(circle at top, #181830, #050509);
-      font-size: 0.85rem;
+      background: radial-gradient(circle at top, #1a1126, #050307);
+      padding: 1.1rem 1.2rem 1.3rem;
+      font-size: 0.86rem;
       color: var(--muted);
     }
 
-    .contact-box strong {
+    .contact-card strong {
       color: var(--text);
     }
 
-    .contact-row {
-      margin-top: 0.8rem;
+    .contact-item {
+      margin-top: 0.6rem;
+      font-size: 0.82rem;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
       font-size: 0.8rem;
     }
 
+    .social-pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+    }
+
+    .social-pill span:first-child {
+      font-size: 0.9rem;
+    }
+
     footer {
-      border-top: 1px solid var(--border);
-      padding: 1.4rem 1.2rem 1.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 1.5rem 1.2rem 1.8rem;
       font-size: 0.75rem;
       color: var(--muted);
       text-align: center;
-      background: linear-gradient(to top, #050509, transparent);
+      background: linear-gradient(to top, #030306, transparent);
     }
 
     .footer-inner {
@@ -426,23 +454,27 @@
       margin: 0 auto;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 840px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
+
       .hero-art {
         order: -1;
       }
-      .about-layout {
+
+      .about-layout,
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
+
       .nav {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .nav-links {
         width: 100%;
-        justify-content: flex-start;
         overflow-x: auto;
       }
     }
@@ -452,13 +484,15 @@
   <div class="page">
     <header>
       <div class="nav">
-        <div class="logo-text">
-          <span class="logo-pill"></span>
-          THE ALTERED SOUND
+        <div class="logo">
+          <div class="logo-mark"></div>
+          <div>
+            <div class="logo-text-main">THE ALTERED SOUND</div>
+            <div class="logo-text-sub">Faith • Fury • Redemption</div>
+          </div>
         </div>
         <nav class="nav-links">
           <a href="#music">Music</a>
-          <a href="#gear">Backing Tracks & Patches</a>
           <a href="#about">Story</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -466,59 +500,63 @@
     </header>
 
     <main>
-      <!-- Hero -->
+      <!-- HERO -->
       <section class="section hero" id="top">
         <div>
-          <div class="hero-tag">Faith • Fury • Redemption</div>
-          <h1 class="hero-title">Christ-centered metalcore for the broken & the brave.</h1>
+          <div class="hero-tag">Christ-centered metalcore</div>
+          <h1 class="hero-title">Songs for the aftermath and the altar.</h1>
           <p class="hero-sub">
-            The Altered Sound is a modern heavy project blending worship, metalcore, and cinematic atmosphere —
-            written for people who know what it feels like to live in the aftermath and still choose hope.
-          
-          <div class="hero-buttons">
-  <a class="btn btn-primary"
-     href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
-     target="_blank"
-     rel="noopener">
-    Listen on Spotify
-  </a>
+            The Altered Sound is a modern heavy project that lives where confession meets breakdowns —
+            gothic atmosphere, brutal honesty, and worship that sounds like a war cry instead of a lullaby.
+          </p>
 
-  <a class="btn btn-ghost" href="#gear">
-    Browse backing tracks & patches
-  </a>
+          <div class="hero-buttons">
+            <!-- Working Spotify button -->
+            <a class="btn btn-primary"
+               href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
+               target="_blank"
+               rel="noopener">
+              Listen on Spotify
+            </a>
+
+            <!-- TODO: update this TikTok link if your handle is different -->
+            <a class="btn btn-ghost"
+               href="https://www.tiktok.com/@thealteredsound"
+               target="_blank"
+               rel="noopener">
+              Follow on TikTok
+            </a>
           </div>
-            New releases, stem-ready backing tracks, and live-ready pedal presets dropping regularly.
+
+          <div class="hero-meta">
+            Death Stealer and future releases will live here — along with lyric videos, updates, and ways to stay connected.
           </div>
         </div>
 
         <aside class="hero-art" aria-hidden="true">
           <div class="hero-art-inner">
-            <div>
-              <div class="art-title">Current Release</div>
-              <div class="art-main">“Death Stealer”</div>
-              <div class="art-tagline">Impending-doom energy, heaven-vs-hell lyrics, altar-call heaviness.</div>
+            <div class="hero-art-image">
+              <!-- Upload your cover art to the repo as "death-stealer-cover.jpg" -->
+              <img src="death-stealer-cover.jpg" alt="Death Stealer cover art by The Altered Sound" />
             </div>
-
             <div>
-              <div class="wave">
-                <span></span><span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="art-meta">
-                <span>Drop tuning worshipcore</span>
-                <span>Produced by Jon</span>
-              </div>
+              <div class="hero-art-label">Current Single</div>
+              <div class="hero-art-title">Death Stealer</div>
+              <p class="hero-art-tagline">
+                A brutal showdown between heaven and hell — Jesus with the keys of death, reclaiming what the grave tried to own.
+              </p>
             </div>
           </div>
         </aside>
       </section>
 
-      <!-- Music -->
+      <!-- MUSIC -->
       <section class="section" id="music">
         <div class="section-header">
-          <div class="section-title">Music & Releases</div>
+          <h2 class="section-title">Music & Releases</h2>
           <p class="section-sub">
-            Stream the latest tracks, lyric videos, and worship-meets-metal anthems. Swap the placeholders with your actual links as you release more songs.
+            As songs release, this space becomes the library: singles, EPs, and thematic projects built around
+            redemption, spiritual warfare, and the reality of living in the fallout of sin.
           </p>
         </div>
 
@@ -527,159 +565,114 @@
             <div class="card-pill">Single</div>
             <h3 class="card-title">Death Stealer</h3>
             <p class="card-text">
-              A crushing heaven-vs-hell showdown. Thick guitars, cinematic breaks, and lyrics about Jesus stealing souls back from death.
+              Crushing guitars, cinematic tension, and lyrics about the One who put His foot on the neck of death
+              and walked out of the grave with the keys.
             </p>
-            <div class="chip-row">
-              <span class="chip">Metalcore</span>
-              <span class="chip">Worshipcore</span>
-              <span class="chip">Drop tuning</span>
-            </div>
+            <div class="card-meta">Impending doom energy • Worshipcore • Drop tuning</div>
             <div class="card-actions">
-              <a class="btn-mini primary" href="#" target="_blank" rel="noopener">Stream</a>
-              <a class="btn-mini" href="#" target="_blank" rel="noopener">Watch lyric video</a>
+              <a class="btn-mini primary"
+                 href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
+                 target="_blank"
+                 rel="noopener">
+                Stream on Spotify
+              </a>
+              <!-- Later: add direct track link, lyric video, etc. -->
             </div>
           </article>
 
           <article class="card">
-            <div class="card-pill">EP / Album</div>
+            <div class="card-pill">Concept Project</div>
             <h3 class="card-title">Born in the Aftermath</h3>
             <p class="card-text">
-              The core concept project: songs about living in the fallout of sin, wrestling with doubt,
-              and finding a Savior in the rubble.
+              A future collection built around the idea of being born into the ruins of someone else’s choices —
+              and still finding a Savior who rebuilds from ashes.
             </p>
-            <div class="chip-row">
-              <span class="chip">Concept record</span>
-              <span class="chip">Faith & struggle</span>
-              <span class="chip">Cinematic</span>
-            </div>
+            <div class="card-meta">Coming soon • Gothic worship • Story-driven</div>
             <div class="card-actions">
-              <a class="btn-mini primary" href="#" target="_blank" rel="noopener">Coming soon</a>
+              <span class="btn-mini">More details soon</span>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- Gear -->
-      <section class="section" id="gear">
-        <div class="section-header">
-          <div class="section-title">Backing Tracks & Pedal Patches</div>
-          <p class="section-sub">
-            Built from the same tones used on The Altered Sound — ready for worship leaders, vocalists,
-            and guitarists who want brutal, clear, mix-ready sound without spending studio money.
-          </p>
-        </div>
-
-        <div class="gear-grid">
-          <article class="card">
-            <div class="card-pill">Backing Track</div>
-            <h3 class="card-title">Death Stealer – Full Instrumental</h3>
-            <p class="price">$10 • WAV / MP3</p>
-            <p class="card-text">
-              Full instrumental mix—no lead vocal. Perfect for live vocals, small churches, or content creators wanting a heavy, faith-centered bed track.
-            </p>
-            <div class="chip-row">
-              <span class="chip">Click-friendly</span>
-              <span class="chip">Studio mix</span>
-              <span class="chip">License for live use *</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-mini primary" href="#">Buy / Download</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-pill">Guitar Patch</div>
-            <h3 class="card-title">Altered Sound – Modern Metalcore Rig</h3>
-            <p class="price">$12 • Helix / Quad Cortex (example)</p>
-            <p class="card-text">
-              Tight rhythm tone, soaring leads, and ambient cleans dialed for worship-meets-breakdown sets. Built for extended-range and baritone guitars.
-            </p>
-            <div class="chip-row">
-              <span class="chip">Rhythm + lead</span>
-              <span class="chip">Ambient verbs</span>
-              <span class="chip">Low-tuned ready</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-mini primary" href="#">Buy Patch</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-pill">Bundle</div>
-            <h3 class="card-title">Worshipcore Starter Pack</h3>
-            <p class="price">$25 • Bundle</p>
-            <p class="card-text">
-              A starter toolkit: 2 backing tracks, 2 tone presets, and a printable setlist layout for heavy worship nights.
-              Customize this with your real products over time.
-            </p>
-            <div class="chip-row">
-              <span class="chip">Great for vocalists</span>
-              <span class="chip">Easy setup</span>
-            </div>
-            <div class="card-actions">
-              <a class="btn-mini primary" href="#">Get the bundle</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- About -->
+      <!-- ABOUT -->
       <section class="section" id="about">
         <div class="section-header">
-          <div class="section-title">The Story</div>
+          <h2 class="section-title">The Story</h2>
         </div>
 
         <div class="about-layout">
           <div class="about-text">
             <p>
-              The Altered Sound was born in the aftermath — after bad choices, broken seasons,
-              and the kind of nights where worship sounds more like a war cry than a soft piano ballad.
+              The Altered Sound was never meant to be clean or safe. It was born in the wreckage:
+              bad decisions, spiritual exhaustion, and the kind of nights where you wonder if
+              worship can even sound like screaming and still count.
             </p>
-            <br />
             <p>
-              These songs live in the tension between metalcore breakdowns and honest prayers:
-              riffs that hit like a freight train, lyrics that refuse to sugar-coat anything,
-              and moments of stillness that feel like breathing after the breakdown ends.
+              These songs are built for people who love Jesus and still carry scars, confusion,
+              or anger. The lyrics refuse to pretend everything is fine. The guitars hit like
+              collapsing stone. The quiet moments feel like breathing in a ruined cathedral.
             </p>
-            <br />
             <p>
-              If you’ve ever loved Jesus and still felt wrecked, angry, guilty, or numb:
-              you’re the reason these songs exist. This project is for people who are still
-              choosing the light even while they’re standing in the rubble.
+              If you’ve ever stood in the aftermath and still chosen the altar — this project is for you.
             </p>
           </div>
 
-          <aside class="about-highlight">
-            <strong>Live / Collabs / Licensing</strong><br /><br />
-            Available for:
-            <ul style="margin-left: 1.1rem; margin-top: 0.4rem;">
-              <li>Custom backing tracks for your church or project</li>
-              <li>Custom tone presets for your exact rig</li>
-              <li>Collabs, guest vocals, and co-writes</li>
-            </ul>
+          <aside class="quote-box">
+            <div class="quote-heading">Heart Behind the Noise</div>
+            <p>
+              “This isn’t about making heavy music for the sake of being heavy.
+              It’s about taking everything I actually feel — shame, hope, fury, gratitude —
+              and dragging it into the light of a God who already knows.”
+            </p>
           </aside>
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- CONTACT -->
       <section class="section" id="contact">
         <div class="section-header">
-          <div class="section-title">Contact & Links</div>
+          <h2 class="section-title">Contact & Links</h2>
+          <p class="section-sub">
+            For collabs, guest vocals, worship nights, or to talk about future releases and live sets.
+          </p>
         </div>
 
-        <div class="contact-box">
-          <p>
-            For bookings, backing track requests, tone questions, or collabs, reach out directly.
-          </p>
-
-          <div class="contact-row">
-            <strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a><br />
-            <strong>Instagram:</strong> <a href="#" target="_blank" rel="noopener">@thealteredsound</a><br />
-            <strong>TikTok:</strong> <a href="#" target="_blank" rel="noopener">@thealteredsound</a>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <strong>Reach Out</strong>
+            <div class="contact-item">
+              Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
+              <!-- TODO: replace with your real email -->
+            </div>
+            <div class="contact-item">
+              Open to: collabs, co-writing, heavy worship sets, and creative experiments that live
+              somewhere between altar call and breakdown.
+            </div>
           </div>
 
-          <div class="contact-row" style="margin-top: 0.9rem; font-size: 0.75rem;">
-            * Update pricing, platforms, and license terms as you launch your products.
+          <div class="contact-card">
+            <strong>Stay Connected</strong>
+            <div class="social-row">
+              <a class="social-pill"
+                 href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
+                 target="_blank"
+                 rel="noopener">
+                <span>🎧</span><span>Spotify</span>
+              </a>
+
+              <a class="social-pill"
+                 href="https://www.tiktok.com/@thealteredsound"
+                 target="_blank"
+                 rel="noopener">
+                <span>🎥</span><span>TikTok</span>
+              </a>
+
+              <a class="social-pill"
+                 href="#top">
+                <span>⬆️</span><span>Back to top</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
