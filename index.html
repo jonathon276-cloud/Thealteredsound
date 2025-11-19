@@ -22,10 +22,10 @@
       --muted: #9a8fa5;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -33,107 +33,94 @@
       background: #030306;
       color: var(--text);
       line-height: 1.6;
-      min-height: 100vh;
-      position: relative;
       overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
     }
 
-    /* Ambient fog / texture */
+    /* Ambient background */
     body::before {
       content: "";
       position: fixed;
-      inset: -40px;
+      inset: -60px;
       background:
-        radial-gradient(circle at top, rgba(111, 63, 140, 0.45), transparent 60%),
-        radial-gradient(circle at bottom, rgba(110, 17, 43, 0.55), transparent 55%),
-        repeating-linear-gradient(
-          120deg,
-          rgba(0, 0, 0, 0.5) 0,
-          rgba(0, 0, 0, 0.5) 2px,
-          rgba(0, 0, 0, 0.7) 3px
-        );
+        radial-gradient(circle at top, rgba(111,63,140,0.45), transparent 60%),
+        radial-gradient(circle at bottom, rgba(110,17,43,0.6), transparent 55%),
+        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 65%);
+      opacity: 0.22;
       mix-blend-mode: screen;
-      opacity: 0.18;
       pointer-events: none;
-      z-index: -2;
-      animation: fog-move 40s linear infinite alternate;
+      z-index: -1;
+      animation: fogMove 40s linear infinite alternate;
     }
 
-    @keyframes fog-move {
-      from { transform: translate3d(-30px, 0, 0); }
+    @keyframes fogMove {
+      from { transform: translate3d(-40px, 0, 0); }
       to   { transform: translate3d(40px, -20px, 0); }
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 55%),
-        radial-gradient(circle at bottom, rgba(0,0,0,0.9), #030306 70%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      background: linear-gradient(to bottom, rgba(3,3,6,0.96), rgba(3,3,6,0.7), transparent);
+      z-index: 10;
+      background: rgba(3,3,6,0.9);
       backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0.75rem 1.2rem;
+      padding: 0.8rem 1.2rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 1rem;
     }
 
-    .logo {
+    .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
     }
 
     .logo-mark {
       width: 28px;
       height: 28px;
-      border-radius: 50%;
+      border-radius: 999px;
       background:
         radial-gradient(circle at 30% 20%, #ffffff, transparent 60%),
         radial-gradient(circle at 70% 80%, var(--accent-glow), transparent 60%),
         radial-gradient(circle at 10% 90%, var(--accent-purple), transparent 60%);
-      box-shadow: 0 0 28px rgba(255, 37, 94, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      animation: logo-pulse 3.5s ease-in-out infinite;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 24px rgba(255,37,94,0.7);
+      animation: logoPulse 3.5s ease-in-out infinite;
     }
 
-    @keyframes logo-pulse {
-      0%, 100% { box-shadow: 0 0 18px rgba(255,37,94,0.5); transform: scale(1); }
-      50%      { box-shadow: 0 0 32px rgba(255,37,94,0.9); transform: scale(1.05); }
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(255,37,94,0.6); }
+      50%      { transform: scale(1.05); box-shadow: 0 0 32px rgba(255,255,255,0.9); }
     }
 
     .logo-text-main {
       font-family: "Cinzel", serif;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      font-size: 0.72rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .logo-text-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      flex-wrap: wrap;
+      gap: 1.1rem;
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -165,36 +152,55 @@
     }
 
     main {
-      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.4rem 1.2rem 3rem;
     }
 
     .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.6rem 1.2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 1rem;
+    }
+
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-top: 0.3rem;
     }
 
     /* HERO */
 
     .hero-img-wrapper {
-      position: relative;
-      margin: 2.4rem auto 2.2rem auto;
       max-width: 900px;
+      margin: 2rem auto 2rem;
       border-radius: 14px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow:
-        0 26px 60px rgba(0, 0, 0, 0.9),
-        0 0 50px rgba(255, 37, 94, 0.35);
+        0 25px 60px rgba(0,0,0,0.9),
+        0 0 50px rgba(255,37,94,0.35);
+      position: relative;
+      animation: heroBreathe 16s ease-in-out infinite alternate;
     }
 
     .hero-img-wrapper::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 55%);
+      background: radial-gradient(circle at top, rgba(255,255,255,0.07), transparent 60%);
       mix-blend-mode: screen;
-      opacity: 0.7;
+      opacity: 0.6;
       pointer-events: none;
     }
 
@@ -202,67 +208,57 @@
       width: 100%;
       display: block;
       object-fit: cover;
-      transform: scale(1.01);
-      animation: hero-breathe 20s ease-in-out infinite alternate;
     }
 
-    @keyframes hero-breathe {
-      from { transform: scale(1.01) translate3d(0,0,0); filter: brightness(0.95); }
-      to   { transform: scale(1.04) translate3d(0,-4px,0); filter: brightness(1.02); }
+    @keyframes heroBreathe {
+      from { transform: scale(1.01) translate3d(0,0,0); }
+      to   { transform: scale(1.04) translate3d(0,-4px,0); }
+    }
+
+    .hero-tagline {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .hero-title {
       font-family: "Cinzel", serif;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      font-weight: 800;
-      letter-spacing: 0.12em;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      text-align: center;
       text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-      background: linear-gradient(120deg, #fdfdfd, #ff9fbf 30%, #c94b5a 60%, #b89cff);
+      letter-spacing: 0.13em;
+      margin-top: 0.6rem;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(120deg, #ffffff, #ff9fbf 35%, #c94b5a 60%, #b89cff);
       -webkit-background-clip: text;
       color: transparent;
-      text-align: center;
-      text-shadow: 0 0 22px rgba(0,0,0,0.8);
-      animation: title-glow 6s ease-in-out infinite;
-    }
-
-    @keyframes title-glow {
-      0%, 100% { text-shadow: 0 0 18px rgba(255,37,94,0.7); }
-      50%      { text-shadow: 0 0 32px rgba(255,255,255,0.9); }
+      text-shadow: 0 0 22px rgba(0,0,0,0.9);
     }
 
     .hero-sub {
+      max-width: 720px;
+      margin: 0.8rem auto 2rem;
+      text-align: center;
       color: var(--muted);
       font-size: 0.98rem;
-      max-width: 720px;
-      text-align: center;
-      margin: 0.5rem auto 2rem auto;
-    }
-
-    .hero-tagline {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
     }
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       margin-bottom: 1.6rem;
     }
 
     .btn {
-      border-radius: 999px;
       padding: 0.75rem 1.6rem;
-      font-size: 0.8rem;
+      border-radius: 999px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      font-size: 0.8rem;
       border: 1px solid transparent;
       cursor: pointer;
       position: relative;
@@ -275,9 +271,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.35s ease-out;
+      transform: translateX(-120%);
       mix-blend-mode: screen;
+      transition: transform 0.35s ease-out;
     }
 
     .btn:hover::before {
@@ -287,10 +283,10 @@
     .btn-primary {
       background: radial-gradient(circle at 0 0, #ffffff33, transparent 45%),
                   linear-gradient(135deg, var(--accent-red), var(--accent-glow));
-      border-color: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255,255,255,0.18);
       box-shadow:
-        0 0 18px rgba(255, 37, 94, 0.65),
-        0 0 40px rgba(179, 18, 47, 0.45);
+        0 0 18px rgba(255,37,94,0.65),
+        0 0 36px rgba(179,18,47,0.45);
     }
 
     .btn-ghost {
@@ -301,27 +297,26 @@
 
     .hero-meta {
       font-size: 0.8rem;
-      color: var(--muted);
       text-align: center;
-    }
-
-    /* SECTION HEADERS */
-
-    .section-title {
-      font-family: "Cinzel", serif;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-sub {
-      font-size: 0.85rem;
       color: var(--muted);
-      max-width: 32rem;
     }
 
-    /* MUSIC */
+    /* LISTEN (SPOTIFY EMBED) */
+
+    .listen-embed {
+      margin-top: 1.2rem;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+    }
+
+    iframe {
+      display: block;
+      border: 0;
+    }
+
+    /* MUSIC GRID */
 
     .music-grid {
       display: grid;
@@ -333,25 +328,9 @@
     .card {
       background: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 55%),
                   linear-gradient(150deg, #17121f, #09060e);
-      border: 1px solid var(--border);
       border-radius: 18px;
+      border: 1px solid var(--border);
       padding: 1.2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle, rgba(255,37,94,0.18), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.3s ease-out;
-      pointer-events: none;
-    }
-
-    .card:hover::before {
-      opacity: 1;
     }
 
     .card-pill {
@@ -363,14 +342,14 @@
 
     .card-title {
       margin-top: 0.4rem;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
     .card-text {
       color: var(--muted);
-      margin: 0.4rem 0;
+      margin: 0.4rem 0 0.3rem;
       font-size: 0.84rem;
     }
 
@@ -381,18 +360,18 @@
       border: 1px solid var(--border);
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: var(--muted);
-      background: transparent;
       cursor: pointer;
+      background: transparent;
+      color: var(--muted);
     }
 
     .btn-mini.primary {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255,255,255,0.2);
       background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
       color: #fff;
     }
 
-    /* THEOLOGY SECTION */
+    /* THEOLOGY */
 
     .theology-grid {
       display: grid;
@@ -415,7 +394,7 @@
       border-radius: 16px;
       border: 1px solid var(--border);
       background:
-        radial-gradient(circle at top, rgba(179, 18, 47, 0.16), transparent 65%),
+        radial-gradient(circle at top, rgba(179,18,47,0.16), transparent 65%),
         #07040c;
       padding: 1rem 1.1rem 1.1rem;
       font-size: 0.8rem;
@@ -430,7 +409,7 @@
       bottom: -8px;
       font-family: "Cinzel", serif;
       font-size: 2.4rem;
-      color: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.06);
     }
 
     .scripture-heading {
@@ -438,7 +417,7 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .scripture-ref {
@@ -449,13 +428,24 @@
       margin-top: 0.4rem;
     }
 
+    /* VIDEOS */
+
+    .video-panel {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #151320, #09060f);
+      padding: 1.2rem 1.2rem 1.3rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
     /* CONTACT */
 
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 1.6rem;
-      margin-top: 1.3rem;
+      grid-template-columns: minmax(0,3fr) minmax(0,2fr);
+      gap: 1.8rem;
+      margin-top: 1.2rem;
     }
 
     .contact-card {
@@ -486,13 +476,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      color: var(--muted);
       background: transparent;
+      color: var(--muted);
       cursor: pointer;
-    }
-
-    .social-pill span:first-child {
-      font-size: 0.9rem;
     }
 
     .social-pill:hover {
@@ -502,12 +488,11 @@
 
     footer {
       text-align: center;
-      padding: 1.8rem 1.2rem 2rem;
+      padding: 1.8rem 1.2rem 2.2rem;
       color: var(--muted);
       font-size: 0.8rem;
-      margin-top: 1.4rem;
       border-top: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(to top, #030306, transparent);
+      margin-top: 1rem;
     }
 
     @media (max-width: 840px) {
@@ -516,185 +501,245 @@
         align-items: flex-start;
       }
 
+      .theology-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
       .nav-links {
         width: 100%;
         overflow-x: auto;
-      }
-
-      .theology-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="nav">
-        <div class="logo">
-          <div class="logo-mark"></div>
+  <header>
+    <div class="nav">
+      <div class="logo-wrap">
+        <div class="logo-mark"></div>
+        <div>
           <div class="logo-text-main">THE ALTERED SOUND</div>
+          <div class="logo-text-sub">Faith • Fury • Redemption</div>
         </div>
-        <nav class="nav-links">
-          <a href="#music">Music</a>
-          <a href="#theology">Theology</a>
-          <a href="#contact">Contact</a>
-        </nav>
       </div>
-    </header>
+      <nav class="nav-links">
+        <a href="#top">Home</a>
+        <a href="#listen">Listen</a>
+        <a href="#music">Music</a>
+        <a href="#theology">Theology</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-      <!-- HERO -->
-      <section class="section" id="top">
-        <div class="hero-img-wrapper">
-          <img src="death_stealer.jpg" alt="Death Stealer artwork by The Altered Sound" />
-        </div>
+  <main>
+    <!-- HERO -->
+    <section class="section" id="top">
+      <div class="hero-img-wrapper">
+        <img src="death_stealer.jpg" alt="Death Stealer artwork by The Altered Sound" />
+      </div>
 
-        <div class="hero-tagline">Faith • Fury • Redemption</div>
-        <h1 class="hero-title">Death Stealer</h1>
+      <div class="hero-tagline">Gothic Christ-centered metalcore</div>
+      <h1 class="hero-title">Death Stealer</h1>
 
-        <p class="hero-sub">
-          Gothic Christ-centered metalcore for people who know what it feels like to live in the aftermath
-          and still drag their hearts back to the altar. Heavy worship, spiritual warfare, and lyrics that
-          refuse to pretend the battle isn’t real.
+      <p class="hero-sub">
+        Heavy worship for people who know what it feels like to live in the aftermath and still drag
+        their hearts back to the altar. Spiritual warfare in stereo — breakdowns, confession, and hope.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary"
+           href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
+           target="_blank" rel="noopener">
+          Listen on Spotify
+        </a>
+
+        <a class="btn btn-ghost"
+           href="https://www.tiktok.com/@alteredstatemetal/"
+           target="_blank" rel="noopener">
+          Follow on TikTok
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        More songs, lyric videos, and heavy worship moments will live here as the project unfolds.
+      </div>
+    </section>
+
+    <!-- LISTEN / SPOTIFY EMBED -->
+    <section class="section" id="listen">
+      <div class="section-header">
+        <h2 class="section-title">Listen</h2>
+        <p class="section-sub">
+          Stream The Altered Sound directly from here. This embed points to the artist page —
+          individual songs and playlists can be added as they release.
         </p>
+      </div>
 
-        <div class="hero-buttons">
-          <a class="btn btn-primary"
-             href="https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA"
-             target="_blank" rel="noopener">
-            Listen on Spotify
-          </a>
+      <div class="listen-embed">
+        <!-- Artist embed: swap to track/album embed later if you want -->
+        <iframe
+          src="https://open.spotify.com/embed/artist/0ds2m67K6n1Lwhs8OeOIjD"
+          width="100%"
+          height="352"
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+    </section>
 
-          <a class="btn btn-ghost"
-             href="https://www.tiktok.com/@thealteredsound"
-             target="_blank" rel="noopener">
-            Follow on TikTok
-          </a>
-        </div>
-
-        <div class="hero-meta">
-          More songs, lyric videos, and heavy worship moments will live here as the project unfolds.
-        </div>
-      </section>
-
-      <!-- MUSIC -->
-      <section class="section" id="music">
+    <!-- MUSIC -->
+    <section class="section" id="music">
+      <div class="section-header">
         <h2 class="section-title">Music & Releases</h2>
         <p class="section-sub">
-          As songs drop, this becomes the library — singles, projects, and concept pieces tied to
-          themes of redemption, warfare, and the strange hope of being loved in the ruins.
+          As you drop more tracks, this becomes the library: singles, concept projects, and anything that
+          lives between worship and war cry.
         </p>
+      </div>
 
-        <div class="music-grid">
-          <article class="card">
-            <div class="card-pill">Single</div>
-            <div class="card-title">Death Stealer</div>
-            <p class="card-text">
-              A brutal, cinematic metalcore anthem about the One who put His foot on the neck of death
-              and walked out of the grave carrying the keys.
-            </p>
-            <button class="btn-mini primary"
-                    onclick="window.open('https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA','_blank')">
-              Stream on Spotify
-            </button>
-          </article>
-        </div>
-      </section>
+      <div class="music-grid">
+        <article class="card">
+          <div class="card-pill">Single</div>
+          <div class="card-title">Death Stealer</div>
+          <p class="card-text">
+            A brutal, cinematic metalcore anthem about the One who put His foot on the neck of death
+            and walked out of the grave carrying the keys.
+          </p>
+          <button class="btn-mini primary"
+                  onclick="window.open('https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA','_blank')">
+            Stream on Spotify
+          </button>
+        </article>
 
-      <!-- THEOLOGY -->
-      <section class="section" id="theology">
+        <article class="card">
+          <div class="card-pill">Future Project</div>
+          <div class="card-title">Born in the Aftermath</div>
+          <p class="card-text">
+            A concept collection built around being born into the ruins of someone else’s choices —
+            and meeting a Savior who rebuilds from ashes.
+          </p>
+          <button class="btn-mini">
+            Details coming soon
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- THEOLOGY -->
+    <section class="section" id="theology">
+      <div class="section-header">
         <h2 class="section-title">Theology Behind the Songs</h2>
         <p class="section-sub">
-          Heavy music is just the vessel. The weight underneath it is the story of a God who walks
-          straight into graves, shame, and spiritual warfare — and doesn’t back down.
+          The heaviness isn’t just sonic — it’s rooted in the reality of a God who walks into graves,
+          shame, and spiritual warfare and doesn’t back down.
         </p>
+      </div>
 
-        <div class="theology-grid">
-          <div class="theology-text">
-            <h3 style="font-family:Cinzel,serif; text-transform:uppercase; letter-spacing:0.16em; font-size:0.9rem; margin-bottom:0.5rem;">
-              Death Stealer
-            </h3>
-            <p>
-              The song pictures Jesus not as distant or fragile, but as the risen King who literally
-              crushes the enemy and rips the keys of death and hell out of his hands. It’s drawn from
-              imagery like Revelation 1, where Jesus says He is the Living One who holds the keys of death,
-              and from the reality that the cross wasn’t a polite gesture — it was a violent rescue.
-            </p>
-            <p>
-              Sonically, the heaviness is on purpose. The breakdowns, the tension, the gothic atmosphere —
-              they’re all there to say: this war is real, but so is the victory. The song is meant for people
-              who feel like death already stole too much from them, and need to be reminded that Jesus
-              has already stolen it back.
-            </p>
-          </div>
-
-          <aside class="scripture-card">
-            <div class="scripture-heading">Anchor Verses</div>
-            <p>
-              “I am the Living One; I was dead, and now look, I am alive forever and ever!
-              And I hold the keys of death and Hades.”
-            </p>
-            <div class="scripture-ref">Revelation 1:18</div>
-
-            <p style="margin-top:0.7rem;">
-              “Since the children have flesh and blood, He too shared in their humanity so that
-              by His death He might break the power of him who holds the power of death…”
-            </p>
-            <div class="scripture-ref">Hebrews 2:14</div>
-          </aside>
+      <div class="theology-grid">
+        <div class="theology-text">
+          <h3 style="font-family:Cinzel,serif; text-transform:uppercase; letter-spacing:0.16em; font-size:0.9rem;">
+            Death Stealer
+          </h3>
+          <p>
+            This track refuses to picture Jesus as distant, fragile, or politely inspirational.
+            It leans into the image of the risen King who crushes the enemy, stands over the grave,
+            and rips the keys of death and Hades out of his hands.
+          </p>
+          <p>
+            The gothic atmosphere, the breakdowns, the tension — they exist to match the weight
+            of what actually happened at the cross and in the empty tomb. It’s not just sad poetry,
+            it’s a violent rescue. The song is for people who feel like death already stole too much
+            from them and need to be reminded that Jesus has already stolen it back.
+          </p>
         </div>
-      </section>
 
-      <!-- CONTACT -->
-      <section class="section" id="contact">
+        <aside class="scripture-card">
+          <div class="scripture-heading">Anchor Verses</div>
+          <p>
+            “I am the Living One; I was dead, and now look, I am alive for ever and ever!
+            And I hold the keys of death and Hades.”
+          </p>
+          <div class="scripture-ref">Revelation 1:18</div>
+
+          <p style="margin-top:0.7rem;">
+            “Since the children have flesh and blood, He too shared in their humanity so that by His death
+            He might break the power of him who holds the power of death…”
+          </p>
+          <div class="scripture-ref">Hebrews 2:14</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VIDEOS (placeholder for YouTube later) -->
+    <section class="section" id="videos">
+      <div class="section-header">
+        <h2 class="section-title">Videos</h2>
+        <p class="section-sub">
+          Lyric videos, live worship moments, breakdown clips, and visualizers can live here once you start
+          posting them to YouTube or TikTok.
+        </p>
+      </div>
+
+      <div class="video-panel">
+        <p>
+          Coming soon: embedded lyric videos and visual content for Death Stealer and future songs.
+          Once you have a YouTube link, we can drop the embed here so people can watch straight from the site.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-header">
         <h2 class="section-title">Contact & Links</h2>
         <p class="section-sub">
-          For collabs, guest vocals, worship nights, or to talk about future releases and heavy worship sets.
+          For collabs, guest vocals, heavy worship sets, or to talk about where this project is headed.
         </p>
+      </div>
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <strong>Reach Out</strong>
-            <p style="margin-top:0.6rem;">
-              Email:
-              <a href="mailto:youremail@example.com">youremail@example.com</a>
-              <br />
-              <!-- TODO: replace with your real email -->
-            </p>
-            <p style="margin-top:0.7rem;">
-              Open to: collabs, co-writing, heavy worship sets, and creative experiments that live
-              somewhere between altar call and breakdown.
-            </p>
-          </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <strong>Reach Out</strong>
+          <p style="margin-top:0.6rem;">
+            Email:
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+            <!-- TODO: replace with your real email -->
+          </p>
+          <p style="margin-top:0.7rem;">
+            Open to: co-writing, features, worship nights that aren’t afraid of breakdowns,
+            and creative experiments that live between altar call and war cry.
+          </p>
+        </div>
 
-          <div class="contact-card">
-            <strong>Stay Connected</strong>
-            <div class="social-row">
-              <button class="social-pill"
-                      onclick="window.open('https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA','_blank')">
-                <span>🎧</span><span>Spotify</span>
-              </button>
+        <div class="contact-card">
+          <strong>Stay Connected</strong>
+          <div class="social-row">
+            <button class="social-pill"
+                    onclick="window.open('https://open.spotify.com/artist/0ds2m67K6n1Lwhs8OeOIjD?si=8Mqm3DasQ7K2akcxZup8qA','_blank')">
+              <span>🎧</span><span>Spotify</span>
+            </button>
 
-              <button class="social-pill"
-                      onclick="window.open('https://www.tiktok.com/@thealteredsound','_blank')">
-                <span>🎥</span><span>TikTok</span>
-              </button>
+            <button class="social-pill"
+                    onclick="window.open('https://www.tiktok.com/@alteredstatemetal/','_blank')">
+              <span>🎥</span><span>TikTok</span>
+            </button>
 
-              <button class="social-pill" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-                <span>⬆️</span><span>Back to top</span>
-              </button>
-            </div>
+            <button class="social-pill"
+                    onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+              <span>⬆️</span><span>Back to top</span>
+            </button>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      © <span id="year"></span> The Altered Sound. All rights reserved.
-    </footer>
-  </div>
+  <footer>
+    © <span id="year"></span> The Altered Sound. All rights reserved.
+  </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
