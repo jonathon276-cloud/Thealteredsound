@@ -28,9 +28,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: "Montserrat", system-ui, sans-serif;
@@ -88,7 +86,6 @@
       gap: 0.7rem;
     }
 
-    /* Animated logo image */
     .logo-img {
       width: 36px;
       height: 36px;
@@ -166,13 +163,9 @@
       padding: 2.4rem 1.2rem 3rem;
     }
 
-    .section {
-      margin-bottom: 2.8rem;
-    }
+    .section { margin-bottom: 2.8rem; }
 
-    .section-header {
-      margin-bottom: 1.2rem;
-    }
+    .section-header { margin-bottom: 1.2rem; }
 
     .section-title {
       font-family: "Cinzel", serif;
@@ -310,7 +303,7 @@
       color: var(--muted);
     }
 
-    /* LISTEN (SPOTIFY EMBED) */
+    /* LISTEN / SPOTIFY EMBED */
 
     .listen-embed {
       margin-top: 1.2rem;
@@ -380,7 +373,7 @@
       color: #fff;
     }
 
-    /* THEOLOGY */
+    /* THEOLOGY & LORE */
 
     .theology-grid {
       display: grid;
@@ -437,7 +430,25 @@
       margin-top: 0.4rem;
     }
 
+    .lore-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+      max-width: 44rem;
+      margin-top: 0.9rem;
+    }
+
+    .lore-body p + p {
+      margin-top: 0.8rem;
+    }
+
     /* VIDEOS */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 1.8rem;
+      margin-top: 1.4rem;
+    }
 
     .video-panel {
       border-radius: 18px;
@@ -446,6 +457,75 @@
       padding: 1.2rem 1.2rem 1.3rem;
       font-size: 0.86rem;
       color: var(--muted);
+    }
+
+    .video-placeholder {
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.2);
+      padding: 0.9rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* LYRICS */
+
+    .lyrics-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+
+    .lyrics-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #181221, #050307);
+      padding: 1.2rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .lyrics-card h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .lyrics-note {
+      font-size: 0.8rem;
+      margin-top: 0.6rem;
+      color: var(--muted);
+    }
+
+    /* MERCH */
+
+    .merch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.4rem;
+    }
+
+    .merch-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #1b101f, #050307);
+      padding: 1.1rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .merch-card h3 {
+      font-family: "Cinzel", serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: var(--text);
     }
 
     /* CONTACT */
@@ -509,12 +589,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       .theology-grid,
+      .video-grid,
       .contact-grid {
         grid-template-columns: minmax(0,1fr);
       }
-
       .nav-links {
         width: 100%;
         overflow-x: auto;
@@ -537,7 +616,10 @@
         <a href="#listen">Listen</a>
         <a href="#music">Music</a>
         <a href="#theology">Theology</a>
+        <a href="#lore">Lore</a>
         <a href="#videos">Videos</a>
+        <a href="#lyrics">Lyrics</a>
+        <a href="#merch">Merch</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -681,21 +763,153 @@
       </div>
     </section>
 
-    <!-- VIDEOS (placeholder for YouTube later) -->
+    <!-- LORE -->
+    <section class="section" id="lore">
+      <div class="section-header">
+        <h2 class="section-title">Lore: Born in the Aftermath</h2>
+        <p class="section-sub">
+          The Altered Sound isn’t just songs — it’s a world built around what it means to be alive
+          after everything fell apart.
+        </p>
+      </div>
+
+      <div class="lore-body">
+        <p>
+          “Born in the Aftermath” is the core idea behind this project: the sense that we were born
+          into a story already broken — families, churches, cities, and hearts carrying damage we
+          didn’t choose. The music leans into that tension instead of pretending it’s clean.
+        </p>
+        <p>
+          The lyrics, visuals, and themes keep circling back to this: there is a God who walks into
+          those ruins on purpose. He doesn’t stand at a distance and shout instructions. He comes
+          close, gets His hands bloody, and rebuilds what we were sure could never be repaired.
+        </p>
+        <p>
+          Every track, from “Death Stealer” forward, lives somewhere between altar call and war cry.
+          It’s worship, but it’s also warfare; confession, but also defiance against the darkness that
+          thought it had the final word.
+        </p>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
     <section class="section" id="videos">
       <div class="section-header">
         <h2 class="section-title">Videos</h2>
         <p class="section-sub">
-          Lyric videos, live worship moments, breakdown clips, and visualizers can live here once you start
-          posting them to YouTube or TikTok.
+          Lyric videos, live worship moments, breakdown clips, and visualizers will live here as you start
+          releasing more visual content.
         </p>
       </div>
 
-      <div class="video-panel">
-        <p>
-          Coming soon: embedded lyric videos and visual content for Death Stealer and future songs.
-          Once you have a YouTube link, we can drop the embed here so people can watch straight from the site.
+      <div class="video-grid">
+        <div class="video-panel">
+          <strong>YouTube / Lyric Videos</strong>
+          <p style="margin-top:0.6rem;">
+            Once you have a YouTube lyric video or visualizer, you can embed it here.
+          </p>
+          <div class="video-placeholder" style="margin-top:0.8rem;">
+            YouTube embed coming soon.
+            <!-- Example embed to use later:
+            <iframe
+              width="100%"
+              height="215"
+              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+              title="YouTube video player"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+            -->
+          </div>
+        </div>
+
+        <div class="video-panel">
+          <strong>TikTok Clips</strong>
+          <p style="margin-top:0.6rem;">
+            Clips, breakdowns, and behind-the-scenes can be highlighted from your TikTok feed.
+          </p>
+          <div class="video-placeholder" style="margin-top:0.8rem;">
+            For now, watch on TikTok:
+            <br /><br />
+            <a href="https://www.tiktok.com/@alteredstatemetal/" target="_blank" rel="noopener">
+              @alteredstatemetal
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LYRICS -->
+    <section class="section" id="lyrics">
+      <div class="section-header">
+        <h2 class="section-title">Lyrics</h2>
+        <p class="section-sub">
+          Full lyric sheets will live here — a place for people to sit with the words, pray through them,
+          and maybe scream along later.
         </p>
+      </div>
+
+      <div class="lyrics-list">
+        <div class="lyrics-card">
+          <h3>Death Stealer</h3>
+          <p>
+            Lyrics for this track will be added here once the final version is locked in. This section can
+            hold the full song text, broken into verses, pre-chorus, chorus, bridge, and breakdown.
+          </p>
+          <p class="lyrics-note">
+            Once you’re ready, we can format the lyrics with section headers, highlight key lines, and
+            even add small notes on where certain screams or harmonies hit.
+          </p>
+        </div>
+
+        <div class="lyrics-card">
+          <h3>Future Songs</h3>
+          <p>
+            As more songs drop, each one can get its own lyric card here — with optional notes about
+            the writing process, the scriptures behind it, or what you were praying when you wrote it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MERCH -->
+    <section class="section" id="merch">
+      <div class="section-header">
+        <h2 class="section-title">Merch & Digital Packs</h2>
+        <p class="section-sub">
+          Even if it’s not live yet, this is where people will look for shirts, art, backing tracks,
+          and pedal presets once you’re ready.
+        </p>
+      </div>
+
+      <div class="merch-grid">
+        <div class="merch-card">
+          <h3>Shirts & Hoodies</h3>
+          <p>
+            Gothic logo tees, lyric-based designs, and “Born in the Aftermath” artwork pieces can all
+            live here with links to your store once it’s ready.
+          </p>
+          <p class="lyrics-note">Coming soon.</p>
+        </div>
+
+        <div class="merch-card">
+          <h3>Backing Tracks</h3>
+          <p>
+            Instrumental mixes for churches, small groups, and vocalists who want to sing these songs
+            live without a full band.
+          </p>
+          <p class="lyrics-note">Coming soon.</p>
+        </div>
+
+        <div class="merch-card">
+          <h3>Pedal & Tone Presets</h3>
+          <p>
+            Guitar and bass presets built to match The Altered Sound’s tones — ready to drop into
+            modern modelers and plugins.
+          </p>
+          <p class="lyrics-note">Coming soon.</p>
+        </div>
       </div>
     </section>
 
