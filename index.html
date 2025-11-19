@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The Altered Sound — gothic Christ-centered metalcore. Death Stealer and more." />
 
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/jpeg" href="logo.jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpeg" />
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
@@ -84,22 +88,27 @@
       gap: 0.7rem;
     }
 
-    .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 20%, #ffffff, transparent 60%),
-        radial-gradient(circle at 70% 80%, var(--accent-glow), transparent 60%),
-        radial-gradient(circle at 10% 90%, var(--accent-purple), transparent 60%);
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 24px rgba(255,37,94,0.7);
+    /* Animated logo image */
+    .logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 16px rgba(255,37,94,0.55);
       animation: logoPulse 3.5s ease-in-out infinite;
+      transform-origin: center center;
     }
 
     @keyframes logoPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(255,37,94,0.6); }
-      50%      { transform: scale(1.05); box-shadow: 0 0 32px rgba(255,255,255,0.9); }
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 14px rgba(255,37,94,0.45);
+      }
+      50% {
+        transform: scale(1.07);
+        box-shadow: 0 0 26px rgba(255,37,94,0.95);
+      }
     }
 
     .logo-text-main {
@@ -517,7 +526,7 @@
   <header>
     <div class="nav">
       <div class="logo-wrap">
-        <div class="logo-mark"></div>
+        <img class="logo-img" src="logo.jpeg" alt="The Altered Sound logo" />
         <div>
           <div class="logo-text-main">THE ALTERED SOUND</div>
           <div class="logo-text-sub">Faith • Fury • Redemption</div>
@@ -579,7 +588,6 @@
       </div>
 
       <div class="listen-embed">
-        <!-- Artist embed: swap to track/album embed later if you want -->
         <iframe
           src="https://open.spotify.com/embed/artist/0ds2m67K6n1Lwhs8OeOIjD"
           width="100%"
@@ -705,8 +713,7 @@
           <strong>Reach Out</strong>
           <p style="margin-top:0.6rem;">
             Email:
-            <a href="mailto:youremail@example.com">youremail@example.com</a>
-            <!-- TODO: replace with your real email -->
+            <a href="mailto:jonathon276@gmail.com">jonathon276@gmail.com</a>
           </p>
           <p style="margin-top:0.7rem;">
             Open to: co-writing, features, worship nights that aren’t afraid of breakdowns,
