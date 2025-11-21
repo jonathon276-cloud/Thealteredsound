@@ -6,11 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="The Altered Sound — gothic Christ-centered metalcore. Death Stealer and more." />
 
-  <!-- Favicon / Logo -->
   <link rel="icon" type="image/jpeg" href="logo.jpeg" />
   <link rel="apple-touch-icon" href="logo.jpeg" />
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
   <style>
@@ -27,7 +25,6 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -40,7 +37,6 @@
       min-height: 100vh;
     }
 
-    /* Ambient background */
     body::before {
       content: "";
       position: fixed;
@@ -94,18 +90,11 @@
       border: 1px solid rgba(255,255,255,0.3);
       box-shadow: 0 0 16px rgba(255,37,94,0.55);
       animation: logoPulse 3.5s ease-in-out infinite;
-      transform-origin: center center;
     }
 
     @keyframes logoPulse {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 14px rgba(255,37,94,0.45);
-      }
-      50% {
-        transform: scale(1.07);
-        box-shadow: 0 0 26px rgba(255,37,94,0.95);
-      }
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.07); }
     }
 
     .logo-text-main {
@@ -113,7 +102,6 @@
       font-size: 0.9rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      white-space: nowrap;
     }
 
     .logo-text-sub {
@@ -125,7 +113,6 @@
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
       gap: 1.1rem;
       font-size: 0.78rem;
       text-transform: uppercase;
@@ -138,501 +125,207 @@
       padding-bottom: 0.2rem;
     }
 
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent-red), var(--accent-purple));
-      transition: width 0.2s ease-out;
-    }
+    .nav-links a:hover { color: var(--text); }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.4rem 1.2rem 3rem;
-    }
-
-    .section { margin-bottom: 2.8rem; }
-
-    .section-header { margin-bottom: 1.2rem; }
-
-    .section-title {
-      font-family: "Cinzel", serif;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 1rem;
-    }
-
-    .section-sub {
-      font-size: 0.85rem;
-      color: var(--muted);
-      max-width: 34rem;
-      margin-top: 0.3rem;
-    }
-
-    /* HERO */
-
-    .hero-img-wrapper {
-      max-width: 900px;
-      margin: 2rem auto 2rem;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow:
-        0 25px 60px rgba(0,0,0,0.9),
-        0 0 50px rgba(255,37,94,0.35);
-      position: relative;
-      animation: heroBreathe 16s ease-in-out infinite alternate;
-    }
-
-    .hero-img-wrapper::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.07), transparent 60%);
-      mix-blend-mode: screen;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .hero-img-wrapper img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    @keyframes heroBreathe {
-      from { transform: scale(1.01) translate3d(0,0,0); }
-      to   { transform: scale(1.04) translate3d(0,-4px,0); }
-    }
-
-    .hero-tagline {
-      text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .hero-title {
-      font-family: "Cinzel", serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      margin-top: 0.6rem;
-      margin-bottom: 0.4rem;
-      background: linear-gradient(120deg, #ffffff, #ff9fbf 35%, #c94b5a 60%, #b89cff);
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 22px rgba(0,0,0,0.9);
-    }
-
-    .hero-sub {
-      max-width: 720px;
-      margin: 0.8rem auto 2rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .btn {
-      padding: 0.75rem 1.6rem;
-      border-radius: 999px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.8rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-      transform: translateX(-120%);
-      mix-blend-mode: screen;
-      transition: transform 0.35s ease-out;
-    }
-
-    .btn:hover::before {
-      transform: translateX(120%);
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at 0 0, #ffffff33, transparent 45%),
-                  linear-gradient(135deg, var(--accent-red), var(--accent-glow));
-      border-color: rgba(255,255,255,0.18);
-      box-shadow:
-        0 0 18px rgba(255,37,94,0.65),
-        0 0 36px rgba(179,18,47,0.45);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border-color: var(--border);
-      color: var(--muted);
-    }
-
-    .hero-meta {
-      font-size: 0.8rem;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    /* LISTEN / SPOTIFY EMBED */
-
-    .listen-embed {
-      margin-top: 1.2rem;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
-    }
-
-    iframe {
-      display: block;
-      border: 0;
-    }
-
-    /* MUSIC GRID */
-
-    .music-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.4rem;
-    }
-
-    .card {
-      background: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 55%),
-                  linear-gradient(150deg, #17121f, #09060e);
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      padding: 1.2rem;
-    }
-
-    .card-pill {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .card-title {
-      margin-top: 0.4rem;
-      font-size: 0.96rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .card-text {
-      color: var(--muted);
-      margin: 0.4rem 0 0.3rem;
-      font-size: 0.84rem;
-    }
-
-    .btn-mini {
-      font-size: 0.72rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      cursor: pointer;
-      background: transparent;
-      color: var(--muted);
-    }
-
-    .btn-mini.primary {
-      border-color: rgba(255,255,255,0.2);
-      background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));
-      color: #fff;
-    }
-
-    /* THEOLOGY & LORE */
-
-    .theology-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 1.8rem;
-      margin-top: 1.4rem;
-    }
-
-    .theology-text {
-      font-size: 0.86rem;
-      color: var(--muted);
-      max-width: 36rem;
-    }
-
-    .theology-text p + p {
-      margin-top: 0.8rem;
-    }
-
-    .scripture-card {
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top, rgba(179,18,47,0.16), transparent 65%),
-        #07040c;
-      padding: 1rem 1.1rem 1.1rem;
-      font-size: 0.8rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scripture-card::before {
-      content: "✝";
-      position: absolute;
-      right: 14px;
-      bottom: -8px;
-      font-family: "Cinzel", serif;
-      font-size: 2.4rem;
-      color: rgba(255,255,255,0.06);
-    }
-
-    .scripture-heading {
-      font-family: "Cinzel", serif;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      margin-bottom: 0.5rem;
-    }
-
-    .scripture-ref {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-top: 0.4rem;
-    }
-
-    .lore-body {
-      font-size: 0.86rem;
-      color: var(--muted);
-      max-width: 44rem;
-      margin-top: 0.9rem;
-    }
-
-    .lore-body p + p {
-      margin-top: 0.8rem;
-    }
-
-    /* VIDEOS */
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 1.8rem;
-      margin-top: 1.4rem;
-    }
-
-    .video-panel {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: linear-gradient(145deg, #151320, #09060f);
-      padding: 1.2rem 1.2rem 1.3rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .video-placeholder {
-      border-radius: 14px;
-      border: 1px dashed rgba(255,255,255,0.2);
-      padding: 0.9rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* LYRICS */
-
-    .lyrics-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.4rem;
-    }
-
-    .lyrics-card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #181221, #050307);
-      padding: 1.2rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .lyrics-card h3 {
-      font-family: "Cinzel", serif;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
-      color: var(--text);
-    }
-
-    .lyrics-note {
-      font-size: 0.8rem;
-      margin-top: 0.6rem;
-      color: var(--muted);
-    }
-
-    /* MERCH */
-
-    .merch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.4rem;
-    }
-
-    .merch-card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #1b101f, #050307);
-      padding: 1.1rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .merch-card h3 {
-      font-family: "Cinzel", serif;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: var(--text);
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0,3fr) minmax(0,2fr);
-      gap: 1.8rem;
-      margin-top: 1.2rem;
-    }
-
-    .contact-card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, #1a1126, #050307);
-      padding: 1.1rem 1.2rem 1.3rem;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
-
-    .contact-card strong {
-      color: var(--text);
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.7rem;
-      font-size: 0.8rem;
-    }
-
-    .social-pill {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 0.35rem 0.8rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-    }
-
-    .social-pill:hover {
-      border-color: var(--accent-purple);
-      color: var(--text);
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.8rem 1.2rem 2.2rem;
-      color: var(--muted);
-      font-size: 0.8rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 840px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .theology-grid,
-      .video-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0,1fr);
-      }
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-      }
-    }
   </style>
 </head>
-<body>
-  <header>
-    <div class="nav">
-      <div class="logo-wrap">
-        <img class="logo-img" src="logo.jpeg" alt="The Altered Sound logo" />
-        <div>
-          <div class="logo-text-main">THE ALTERED SOUND</div>
-          <div class="logo-text-sub">Faith • Fury • Redemption</div>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#top">Home</a>
-        <a href="#listen">Listen</a>
-        <a href="#music">Music</a>
-        <a href="#theology">Theology</a>
-        <a href="#lore">Lore</a>
-        <a href="#videos">Videos</a>
-        <a href="#lyrics">Lyrics</a>
-        <a href="#merch">Merch</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
+<body>
+<header>
+  <div class="nav">
+    <div class="logo-wrap">
+      <img class="logo-img" src="logo.jpeg" alt="The Altered Sound logo" />
+      <div>
+        <div class="logo-text-main">THE ALTERED SOUND</div>
+        <div class="logo-text-sub">Faith • Fury • Redemption</div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#listen">Listen</a>
+
+      <!-- ✅ Corrected Gumroad Music Button -->
+      <a href="https://thealteresound.gumroad.com" target="_blank" rel="noopener">Music</a>
+
+      <a href="#theology">Theology</a>
+      <a href="#lore">Lore</a>
+      <a href="#videos">Videos</a>
+      <a href="#lyrics">Lyrics</a>
+      <a href="#merch">Merch</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Altered Sound | Official Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The Altered Sound — gothic Christ-centered metalcore. Death Stealer and more." />
+
+  <link rel="icon" type="image/jpeg" href="logo.jpeg" />
+  <link rel="apple-touch-icon" href="logo.jpeg" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #030306;
+      --bg-alt: #090711;
+      --panel: #101018;
+      --border: #2b2033;
+      --accent-red: #b3122f;
+      --accent-glow: #ff255e;
+      --accent-purple: #4c2b72;
+      --text: #f5f5f7;
+      --muted: #9a8fa5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Montserrat", system-ui, sans-serif;
+      background: #030306;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -60px;
+      background:
+        radial-gradient(circle at top, rgba(111,63,140,0.45), transparent 60%),
+        radial-gradient(circle at bottom, rgba(110,17,43,0.6), transparent 55%),
+        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 65%);
+      opacity: 0.22;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: -1;
+      animation: fogMove 40s linear infinite alternate;
+    }
+
+    @keyframes fogMove {
+      from { transform: translate3d(-40px, 0, 0); }
+      to   { transform: translate3d(40px, -20px, 0); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(3,3,6,0.9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 0 16px rgba(255,37,94,0.55);
+      animation: logoPulse 3.5s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.07); }
+    }
+
+    .logo-text-main {
+      font-family: "Cinzel", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <div class="logo-wrap">
+      <img class="logo-img" src="logo.jpeg" alt="The Altered Sound logo" />
+      <div>
+        <div class="logo-text-main">THE ALTERED SOUND</div>
+        <div class="logo-text-sub">Faith • Fury • Redemption</div>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#top">Home</a>
+      <a href="#listen">Listen</a>
+
+      <!-- ✅ Corrected Gumroad Music Button -->
+      <a href="https://thealteresound.gumroad.com" target="_blank" rel="noopener">Music</a>
+
+      <a href="#theology">Theology</a>
+      <a href="#lore">Lore</a>
+      <a href="#videos">Videos</a>
+      <a href="#lyrics">Lyrics</a>
+      <a href="#merch">Merch</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main><!-- HERO -->
     <section class="section" id="top">
       <div class="hero-img-wrapper">
         <img src="death_stealer.jpg" alt="Death Stealer artwork by The Altered Sound" />
       </div>
 
       <div class="hero-tagline">Gothic Christ-centered metalcore</div>
+
       <h1 class="hero-title">Death Stealer</h1>
 
       <p class="hero-sub">
@@ -680,7 +373,7 @@
       </div>
     </section>
 
-    <!-- MUSIC -->
+    <!-- MUSIC SECTION -->
     <section class="section" id="music">
       <div class="section-header">
         <h2 class="section-title">Music & Releases</h2>
@@ -716,9 +409,7 @@
           </button>
         </article>
       </div>
-    </section>
-
-    <!-- THEOLOGY -->
+    </section><!-- THEOLOGY -->
     <section class="section" id="theology">
       <div class="section-header">
         <h2 class="section-title">Theology Behind the Songs</h2>
@@ -810,17 +501,6 @@
           </p>
           <div class="video-placeholder" style="margin-top:0.8rem;">
             YouTube embed coming soon.
-            <!-- Example embed to use later:
-            <iframe
-              width="100%"
-              height="215"
-              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-              title="YouTube video player"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-            -->
           </div>
         </div>
 
@@ -838,9 +518,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- LYRICS -->
+    </section><!-- LYRICS -->
     <section class="section" id="lyrics">
       <div class="section-header">
         <h2 class="section-title">Lyrics</h2>
